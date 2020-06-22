@@ -1,22 +1,11 @@
-#!/usr/bin/env groovy
+Jenkinsfile (Declarative Pipeline)
 pipeline {
-  agent any
-
-  stages {
-    stage('Build') {
-        steps {
-            echo 'Building..'
+    agent { docker 'python:3.5.1' }
+    stages {
+        stage('build') {
+            steps {
+                sh 'python --version'
+            }
         }
     }
-    stage('Test') {
-        steps {
-            echo 'Testing..'
-        }
-    }
-    stage('Deploy') {
-        steps {
-            echo 'Deploying....'
-        }
-    }
-  }
 }
